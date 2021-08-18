@@ -15,7 +15,7 @@ app.get('/', function (req: Request, res: Response) {
 
 order_routes(app)
 product_routes(app)
-user_Routes(app)
+user_routes(app)
 
 app.listen(3000, function () {
     console.log(`starting app on: ${address}`)

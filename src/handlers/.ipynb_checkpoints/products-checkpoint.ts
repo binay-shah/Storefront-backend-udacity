@@ -7,13 +7,13 @@ const store = new ProductStore()
 
 const index = async (_req: Request, res: Response) => {
     const products = await store.index();
-    res.json(orders)
+    res.json(products)
 }
 
 
 
 
-const show = async (_req: Request, res: Response) => {    
+const show = async (req: Request, res: Response) => {    
     try{       
       const product = await store.show(req.body.id)
        res.json(product) 
@@ -24,10 +24,12 @@ const show = async (_req: Request, res: Response) => {
     
 }
 
-const create = async (_req: Request, res: Response) => {
-    const order: Product = {
+const create = async (req: Request, res: Response) => {
+    console.log(req.body)
+    const product: Product = {
       name:  req.body.name,
-      user_id: req.body.price
+      price: req.body.price,
+      category_id: req.body.category_id
     }
     try{
        const newProduct = await store.create(product);

@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { User, UserStore } from '../models/user'
-import 
+
 
 
 const store = new UserStore()
@@ -11,7 +11,7 @@ const index = async (_req: Request, res: Response) => {
 }
 
 
-const show = async (_req: Request, res: Response) => {    
+const show = async (req: Request, res: Response) => {    
     try{       
       const user = await store.show(req.body.id)
        res.json(user) 
@@ -22,10 +22,12 @@ const show = async (_req: Request, res: Response) => {
     
 }
 
-const create = async (_req: Request, res: Response) => {
+const create = async (req: Request, res: Response) => {
     const order: User = {
+      username: req.body.username,
       firstname:  req.body.firstname,
-      lastname: req.body.lastname
+      lastname: req.body.lastname,
+      password: req.body.password
     }
     try{
        const newOrder = await store.create(order);

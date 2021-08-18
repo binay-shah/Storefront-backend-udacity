@@ -41,6 +41,7 @@ export class ProductStore {
   }
 
   async create(p: Product): Promise<Product> {
+      console.log(p)
       try {
     const sql = 'INSERT INTO products (name, price, category_id) VALUES($1, $2, $3) RETURNING *'
     // @ts-ignore

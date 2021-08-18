@@ -13,7 +13,7 @@ const index = async (_req: Request, res: Response) => {
     }    
 }
 
-const show = async (_req: Request, res: Response) => {    
+const show = async (req: Request, res: Response) => {    
     try{       
       const order = await store.show(req.body.id)
        res.json(order) 
@@ -24,7 +24,7 @@ const show = async (_req: Request, res: Response) => {
     
 }
 
-const create = async (_req: Request, res: Response) => {
+const create = async (req: Request, res: Response) => {
     const order: Order = {
       status:  req.body.status,
       user_id: req.body.user_id
